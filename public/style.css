@@ -1,0 +1,14 @@
+/* styles */
+/* called by your view template */
+h1,h2{
+  text-align: center;
+  font-family: Muli;
+}
+body{
+
+}
+#navbg{
+}
+h2{
+text-decoration: underline;
+}
