@@ -1,2 +1,2 @@
-# bookclub
-Full-stack, book trading webapp.
+Welcome to BookTrading
+=================
