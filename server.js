@@ -36,7 +36,15 @@ app.use(express.static('public'));
 app.get("/", function (request, response) {
   response.render('index');
 });
-
+app.get("/addbook", function (request, response) {
+  response.render('addbook');
+});
+app.get("/trades", function (request, response) {
+  response.render('addbook');
+});
+app.get("/profile", function (request, response) {
+  response.render('profile');
+});
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
