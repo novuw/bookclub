@@ -8,23 +8,6 @@ html(lang="en")
   head
     title Book Trader
 script.
-  function mySuccess(json){
-    for(var i = 0; i < json.length; i++){
-      console.log(json[i]);
-      $('#books').append('<tr>' + '<td>' + json[i].author + '</td>' + '<td>' + json[i].title + '</td>' + '<td>' + json[i].description + '</td>' + '</tr>');
-    }
-  }
-  $(document).ready(function(){
-    $.ajax({
-        url: 'https://api.mlab.com/api/1/databases/bookstorage/collections/books?apiKey=XwubhE1vzrlUofAGyt_OzccWmOuUFQPl',
-        type: "GET",
-        dataType: 'json',
-        success: mySuccess,
-        error: function(err){
-          alert(err);
-        }
-    });
-  });
   function addBook(){
     window.location.replace('https://booktrading.glitch.me/addbook');
   }
@@ -43,16 +26,9 @@ body
         center
           button(class="btn btn-info" style={'margin-left': '2%', 'margin-right': '2%'} onclick="profile()") Profile
           button(class="btn btn-success" style={'margin-right': '2%'} onclick='trades()') Trades
-          button(class="btn btn-danger" onclick='addBook()') Add Book 
+          button(class="btn btn-danger" onclick='addBook()') Add Book
     center
-      div(class='well' id='allbooks' style={'width': '40%'})
-        h2 Available Books
-        table(class='table' id="books" border='1' frame='void' rules='rows')
-          thead
-            tr
-              th(scope="col")  Author
-              th(scope="col")  Name
-              th(scope="col")  Description
+      div(class='well' style={'width': '40%'})
+        h2 
             
-    
     

@@ -4,6 +4,10 @@ h1,h2{
   text-align: center;
   font-family: Muli;
 }
+h1:hover{
+  text-decoration: underline;
+  cursor: pointer;
+}
 body{
 
 }
