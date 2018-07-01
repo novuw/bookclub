@@ -1,0 +1,10 @@
+basically:
+  -figure out how to access cookies to check if logged in
+  -add user field to each book
+  -allow trades where you type user and book
+  -add field to user field with trades
+  -add trade adds a request
+  -decline deletes request
+  -accepting trade inserts book into original fella's profile
+  -display all trades in trades menu
+  -logging in causes new obj to be made with user info and books they own

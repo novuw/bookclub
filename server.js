@@ -41,7 +41,7 @@ app.get("/addbook", function (request, response) {
   response.render('addbook', profileInfo);
 });
 app.get("/trades", function (request, response) {
-  response.render('addbook', profileInfo);
+  response.render('trades', profileInfo);
 });
 app.get("/profile", function (request, response) {
   response.render('profile', profileInfo);

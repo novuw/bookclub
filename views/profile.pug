@@ -20,6 +20,7 @@ script.
   function home(){
     window.location.replace('https://booktrading.glitch.me/');
   }
+  var truth = document.cookie.includes('username');
 body
     div(class="well")
         h1(onclick="home()") #[i Book Trading Club]
@@ -29,8 +30,9 @@ body
           button(class="btn btn-danger" onclick='addBook()') Add Book
     center
       div(class='well' style={'width': '40%'})
-        h2 Sign In
-        a(class='btn btn-primary bg-dark' href="https://github.com/login/oauth/authorize?client_id=ae787f0e81feb988c955&scope=read:user") Sign in with Github!     
-          img(src='https://image.flaticon.com/icons/svg/25/25231.svg' style={'width':'20px'})
-            
-    
+        if '#{truth}'
+          h2 Signed in!
+        else
+          h2 Sign In
+          a(class='btn btn-primary bg-dark' href="https://github.com/login/oauth/authorize?client_id=ae787f0e81feb988c955&scope=read:user") Sign in with Github!     
+            img(src='https://image.flaticon.com/icons/svg/25/25231.svg' style={'width':'20px'})
