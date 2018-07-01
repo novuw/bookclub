@@ -29,6 +29,9 @@ body
           button(class="btn btn-danger" onclick='addBook()') Add Book
     center
       div(class='well' style={'width': '40%'})
-        h2 Active Trades
+        h2(style={'text-decoration': 'none'}) Logged in as: #{info.login}
+        //img(src='#{info.avatar_url}')
+        h3 #[b Bio:] #{info.bio}
+        h3 #[b Email:] #{info.email}
             
     
