@@ -20,6 +20,8 @@ script.
   function home(){
     window.location.replace('https://booktrading.glitch.me/');
   }
+  var truth = document.cookie.includes('username');
+    console.log(truth);
 body
     div(class="well")
         h1(onclick="home()") #[i Book Trading Club]
@@ -30,5 +32,9 @@ body
     center
       div(class='well' style={'width': '40%'})
         h2 Active Trades
+        if '#{truth}' == true
+        
+        else
+          h2 Please Sign in!
             
     

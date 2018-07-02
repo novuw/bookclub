@@ -1,4 +1,4 @@
-basically:
+in future:
   -figure out how to access cookies to check if logged in
   -add user field to each book
   -allow trades where you type user and book

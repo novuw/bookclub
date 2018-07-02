@@ -20,6 +20,8 @@ script.
    function home(){
     window.location.replace('https://booktrading.glitch.me/');
   }
+  var truth = document.cookie.includes('username');
+    console.log(truth);
 body
     div(class="well")
         h1(onclick="home()") #[i Book Trading Club]
@@ -30,14 +32,17 @@ body
     center
       div(class='well' style={'width': '40%'})
         h2 Add a Book
-        form(action='addbooksubmit' method='GET')
-          input(type='text' placeholder='Author' name='author' autocomplete='off')
-          br
-          input(type='text' placeholder='Title' name='title' autocomplete='off')
-          br
-          input(type='text' placeholder='Description' name='desc' autocomplete='off')
-          br
-          input(class='btn btn-primary' type='submit' style={'margin-top':'2%'})
+        if '#{truth}' == true
+          form(action='addbooksubmit' method='GET')
+            input(type='text' placeholder='Author' name='author' autocomplete='off')
+            br
+            input(type='text' placeholder='Title' name='title' autocomplete='off')
+            br
+            input(type='text' placeholder='Description' name='desc' autocomplete='off')
+            br
+            input(class='btn btn-primary' type='submit' style={'margin-top':'2%'})
+        else
+          h2 Please Sign in!
         if msg
           h3 #{msg}
         else

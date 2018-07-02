@@ -20,7 +20,9 @@ script.
   function home(){
     window.location.replace('https://booktrading.glitch.me/');
   }
-  var truth = document.cookie.includes('username');
+  //var truth = document.cookie.includes('username');
+  var truth = {'tre': document.cookie.includes('username')};
+  console.log(truth);
 body
     div(class="well")
         h1(onclick="home()") #[i Book Trading Club]
@@ -30,8 +32,8 @@ body
           button(class="btn btn-danger" onclick='addBook()') Add Book
     center
       div(class='well' style={'width': '40%'})
-        if '#{truth}'
-          h2 Signed in!
+        if '#{truth["truth"]}' == true
+          h2 Signed in! 
         else
           h2 Sign In
           a(class='btn btn-primary bg-dark' href="https://github.com/login/oauth/authorize?client_id=ae787f0e81feb988c955&scope=read:user") Sign in with Github!     
