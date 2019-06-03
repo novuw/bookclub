@@ -33,5 +33,11 @@ body
         //img(src='#{info.avatar_url}')
         h3 #[b Bio:] #{info.bio}
         h3 #[b Email:] #{info.email}
+        script.
+          if('#{info.login}' != undefined){
+            document.cookie = "username="+'#{info.login}';
+          } else{
+            console.log('Login!');
+          }
             
     

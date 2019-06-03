@@ -10,20 +10,18 @@ var code;
 var murl = process.env.murl;
 var request = require('superagent');
 var access_token;
-/*function listBooks(res){
+var title;
+var desc;
+var author;
+function insertBook(title, author, desc){
   mongo.connect(murl, { useNewUrlParser: true }, function(err, client){
       if (err) throw err;
       var db = client.db('bookstorage');
       var books = db.collection('books');
-      books.find().toArray(function(err, documents){
-        if (err) throw err;
-        for (var i = 0; i < documents.length; i++){
-        }
-      });
-      client.close();
-      res.render('index');
+      books.insert({'author':author,'description':desc,'title':title});
     });
-}*/
+}
+var profileInfo;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -40,13 +38,13 @@ app.get("/", function (request, response) {
   response.render('index');
 });
 app.get("/addbook", function (request, response) {
-  response.render('addbook');
+  response.render('addbook', profileInfo);
 });
 app.get("/trades", function (request, response) {
-  response.render('addbook');
+  response.render('trades', profileInfo);
 });
 app.get("/profile", function (request, response) {
-  response.render('profile');
+  response.render('profile', profileInfo);
 });
 //MAKE SECRET PRIVATE!!
 app.use('/user/signin/callback', function(req, res){
@@ -60,10 +58,20 @@ app.use('/user/signin/callback', function(req, res){
     return access_token;
   });
 });
+app.get('/addbooksubmit', function(req, res){
+  title = req.query.title;
+  author = req.query.author;
+  desc = req.query.desc;
+  insertBook(title, author, desc);
+  res.render('addbook', {'msg':'Book Submitted!'});
+  
+});
 
 app.get('/user', function(req, res){
   request.get('https://api.github.com/user').set('Authorization', 'token ' + access_token).end((err, resolve) => {
     res.render('logged-in', {'info': resolve.body});
+    profileInfo = resolve.body;
+    return profileInfo;
   });
 });
 
